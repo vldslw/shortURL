@@ -8,9 +8,7 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
 <style scoped>
@@ -23,5 +21,4 @@
   padding: 185px 0;
   max-width: 800px;
 }
-
 </style>
