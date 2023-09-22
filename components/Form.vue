@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { nanoid } from "nanoid";
+
 export default {
   data() {
     return {
@@ -30,12 +32,15 @@ export default {
   methods: {
     onButtonClick() {
       if (this.slug === "") {
-        this.slug = Math.random().toString(36).substring(2, 8);
+        // generate random slug if slug is empty
+        this.slug = nanoid(8);
         this.shortUrl = `https://shrtnr.vercel.app/s/${this.slug}`;
       } else {
+        // use slug if slug is not empty
         this.shortUrl = `https://shrtnr.vercel.app/s/${this.slug}`;
       }
       this.$router.push({
+        // redirect to /shortened route with query params
         path: "/shortened",
         query: { longUrl: this.longUrl, shortUrl: this.shortUrl },
       });
