@@ -12,6 +12,7 @@
       type="text"
       class="form__input form__input_slug"
       placeholder="Customize link (optional)"
+      v-model="slug"
     />
     <button class="form__button" @click.prevent="onButtonClick">Shorten</button>
   </form>
@@ -22,13 +23,21 @@ export default {
   data() {
     return {
       longUrl: "",
+      slug: "",
+      shortUrl: "",
     };
   },
   methods: {
     onButtonClick() {
+      if (this.slug === "") {
+        this.slug = Math.random().toString(36).substring(2, 8);
+        this.shortUrl = `https://shrtnr.vercel.app/s/${this.slug}`;
+      } else {
+        this.shortUrl = `https://shrtnr.vercel.app/s/${this.slug}`;
+      }
       this.$router.push({
         path: "/shortened",
-        query: { longUrl: this.longUrl },
+        query: { longUrl: this.longUrl, shortUrl: this.shortUrl },
       });
     },
   },

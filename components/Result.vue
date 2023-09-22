@@ -20,13 +20,12 @@ export default {
       navigator.clipboard.writeText(this.shortUrl);
     },
   },
-  // computed property for short url
   computed: {
-    shortUrl() {
-      return "https://shrtnr.vercel.app/s/QWertY";
-    },
     longUrl() {
       return this.$route.query.longUrl;
+    },
+    shortUrl() {
+      return this.$route.query.shortUrl;
     },
   },
 };
