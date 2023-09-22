@@ -5,6 +5,7 @@
       type="text"
       class="form__input form__input_link"
       placeholder="Enter your long link here"
+      v-model="longUrl"
     />
     <p class="form__base-url">shrtnr.vercel.app/s/</p>
     <input
@@ -18,9 +19,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      longUrl: "",
+    };
+  },
   methods: {
     onButtonClick() {
-      this.$router.push("/shortened");
+      this.$router.push({
+        path: "/shortened",
+        query: { longUrl: this.longUrl },
+      });
     },
   },
 };
