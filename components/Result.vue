@@ -20,13 +20,12 @@ export default {
       navigator.clipboard.writeText(this.shortUrl);
     },
   },
-  // computed property for short url
   computed: {
-    shortUrl() {
-      return "https://shrtnr.vercel.app/s/QWertY";
-    },
     longUrl() {
-      return "https://practicum.yandex.ru/trainer/vue-dev/lesson/cf0435ca-b9fb-412e-92b3-f78223f25b21/";
+      return this.$route.query.longUrl;
+    },
+    shortUrl() {
+      return this.$route.query.shortUrl;
     },
   },
 };
@@ -88,5 +87,9 @@ export default {
 .result__long-url-link {
   color: #2f80ed;
   text-decoration: none;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>

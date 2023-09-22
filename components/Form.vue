@@ -5,22 +5,45 @@
       type="text"
       class="form__input form__input_link"
       placeholder="Enter your long link here"
+      v-model="longUrl"
     />
     <p class="form__base-url">shrtnr.vercel.app/s/</p>
     <input
       type="text"
       class="form__input form__input_slug"
       placeholder="Customize link (optional)"
+      v-model="slug"
     />
     <button class="form__button" @click.prevent="onButtonClick">Shorten</button>
   </form>
 </template>
 
 <script>
+import { nanoid } from "nanoid";
+
 export default {
+  data() {
+    return {
+      longUrl: "",
+      slug: "",
+      shortUrl: "",
+    };
+  },
   methods: {
     onButtonClick() {
-      this.$router.push("/shortened");
+      if (this.slug === "") {
+        // generate random slug if slug is empty
+        this.slug = nanoid(8);
+        this.shortUrl = `https://shrtnr.vercel.app/s/${this.slug}`;
+      } else {
+        // use slug if slug is not empty
+        this.shortUrl = `https://shrtnr.vercel.app/s/${this.slug}`;
+      }
+      this.$router.push({
+        // redirect to /shortened route with query params
+        path: "/shortened",
+        query: { longUrl: this.longUrl, shortUrl: this.shortUrl },
+      });
     },
   },
 };
