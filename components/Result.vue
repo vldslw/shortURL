@@ -1,19 +1,35 @@
 <template>
   <div class="result">
     <h2 class="result__title">Your ShortURL</h2>
-    <input class="result__short-url" value="shrtnr.vercel.app/s/QWertY" />
-    <button class="result__button">Copy</button>
+    <input class="result__short-url" :value="shortUrl" />
+    <button class="result__button" @click="onButtonClick">Copy</button>
     <p class="result__long-url">
       Original URL:
-      <a href="#" class="result__long-url-link"
-        >https://practicum.yandex.ru/trainer/vue-dev/lesson/cf0435ca-b9fb-412e-92b3-f78223f25b21/</a
-      >
+      <a :href="longUrl" class="result__long-url-link" target="_blank">{{
+        longUrl
+      }}</a>
     </p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    onButtonClick() {
+      // copy shortUrl to clipboard
+      navigator.clipboard.writeText(this.shortUrl);
+    },
+  },
+  // computed property for short url
+  computed: {
+    shortUrl() {
+      return "https://shrtnr.vercel.app/s/QWertY";
+    },
+    longUrl() {
+      return "https://practicum.yandex.ru/trainer/vue-dev/lesson/cf0435ca-b9fb-412e-92b3-f78223f25b21/";
+    },
+  },
+};
 </script>
 
 <style scoped>

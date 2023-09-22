@@ -10,14 +10,20 @@
     <input
       type="text"
       class="form__input form__input_slug"
-      placeholder="Customize (optional)"
+      placeholder="Customize link (optional)"
     />
-    <button class="form__button">Shorten</button>
+    <button class="form__button" @click.prevent="onButtonClick">Shorten</button>
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    onButtonClick() {
+      this.$router.push("/shortened");
+    },
+  },
+};
 </script>
 
 <style scoped>
