@@ -18,7 +18,7 @@ export default {};
 
 .content {
   margin: 0 auto;
-  padding: 185px 0;
+  padding: 120px 20px 0;
   max-width: 800px;
 }
 </style>
