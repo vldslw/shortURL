@@ -34,4 +34,15 @@ export default {};
   text-decoration-line: underline;
   max-width: 300px;
 }
+
+.return-link:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 580px) {
+  .return-link {
+    font-size: 20px;
+  }
+}
 </style>
