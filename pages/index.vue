@@ -4,6 +4,7 @@
     <main class="content">
       <Form />
     </main>
+    <Footer />
   </div>
 </template>
 
