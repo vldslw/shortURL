@@ -135,8 +135,52 @@ export default {
   border: none;
   cursor: pointer;
 }
-
 .form__button:hover {
   background-color: #2f80ed;
+  transition: background-color 0.3s;
+}
+
+@media (max-width: 800px) {
+  .form {
+    grid-template-areas:
+      "title title title"
+      "input input input"
+      "base-url slug slug"
+      "button button button";
+    grid-template-columns: 225px 1fr 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .form__input {
+    font-size: 18px;
+  }
+  .form__base-url {
+    font-size: 18px;
+  }
+  .form__title {
+    font-size: 22px;
+  }
+  .form__button {
+    font-size: 20px;
+    padding: 19px 37px;
+  }
+}
+
+@media (max-width: 530px) {
+  .form {
+    grid-template-areas:
+      "title title title"
+      "input input input"
+      "base-url base-url base-url"
+      "slug slug slug"
+      "button button button";
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 13px;
+  }
+
+  .form__base-url {
+    padding: 10px 20px;
+  }
 }
 </style>

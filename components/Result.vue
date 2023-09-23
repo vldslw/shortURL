@@ -74,6 +74,12 @@ export default {
 }
 
 .result__button:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.result__button:active {
+  opacity: 1;
   background-color: #2f80ed;
 }
 .result__long-url {
@@ -92,5 +98,38 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.result__long-url-link:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 580px) {
+  .result__short-url {
+    font-size: 18px;
+  }
+
+  .result__long-url {
+    font-size: 18px;
+  }
+  .result__title {
+    font-size: 22px;
+  }
+  .result__button {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 530px) {
+  .result {
+    grid-template-areas:
+      "title title"
+      "short-url short-url"
+      "button button"
+      "long-url long-url";
+    grid-template-columns: 1fr 1fr;
+    row-gap: 13px;
+  }
 }
 </style>
