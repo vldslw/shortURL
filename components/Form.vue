@@ -1,11 +1,12 @@
 <template>
-  <form class="form">
+  <form class="form" @submit.prevent="onSubmit">
     <h2 class="form__title">Shorten your link</h2>
     <input
-      type="text"
       class="form__input form__input_link"
       placeholder="Enter your long link here"
       v-model="longUrl"
+      type="url"
+      required
     />
     <p class="form__base-url">shrtnr.vercel.app/s/</p>
     <input
@@ -13,8 +14,10 @@
       class="form__input form__input_slug"
       placeholder="Customize link (optional)"
       v-model="slug"
+      minLength="3"
+      maxLength="8"
     />
-    <button class="form__button" @click.prevent="onButtonClick">Shorten</button>
+    <button class="form__button">Shorten</button>
   </form>
 </template>
 
@@ -36,7 +39,7 @@ export default {
   methods: {
     // this is example code, because there is no backend to handle the request at this time,
     // so I just did it to make the app look like it is working
-    onButtonClick() {
+    onSubmit() {
       if (this.slug === "") {
         // generate random slug if slug is empty
         this.slug = nanoid(8);
@@ -52,7 +55,7 @@ export default {
       });
     },
     // this is how the request should have looked like with backend active
-    async onButtonClickAsync() {
+    async onSubmitAsync() {
       try {
         const response = await axios.post(
           "https://shrtnr.vercel.app/api/shorten",
