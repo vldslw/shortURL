@@ -19,7 +19,7 @@ export default {};
 
 .content {
   margin: 0 auto;
-  padding: 120px 20px 0;
+  padding: 120px 20px;
   max-width: 800px;
   display: flex;
   flex-direction: column;
