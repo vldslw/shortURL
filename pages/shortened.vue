@@ -5,6 +5,7 @@
       <Result />
       <router-link to="/" class="return-link">Shorten another URL</router-link>
     </main>
+    <Footer />
   </div>
 </template>
 
