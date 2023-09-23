@@ -16,6 +16,7 @@
       v-model="slug"
       minLength="3"
       maxLength="8"
+      pattern="^[a-zA-Z0-9_\-]*$"
     />
     <button class="form__button">Shorten</button>
   </form>
