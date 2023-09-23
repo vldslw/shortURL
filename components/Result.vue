@@ -82,14 +82,15 @@ export default {
   padding: 0;
   font-size: 22px;
   font-weight: 400;
+  line-height: 32px;
 }
 
 .result__long-url-link {
   color: #2f80ed;
   text-decoration: none;
   display: block;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 </style>
