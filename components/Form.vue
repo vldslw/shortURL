@@ -69,7 +69,7 @@ export default {
         );
         // here we would get the shortUrl from the backend response
         this.shortUrl = response.data.shortUrl;
-        // when we would redirect to /shortened route with query params just as we did in the example code
+        // then we would redirect to /shortened route with query params just as we did in the example code
         this.$router.push({
           path: "/shortened",
           query: { longUrl: this.longUrl, shortUrl: this.shortUrl },
